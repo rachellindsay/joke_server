@@ -1,0 +1,11 @@
+# docker compose file for the joke_server
+
+version: "3"
+
+services:
+  web:
+    build:
+      context: ./docker-containers/web
+      dockerfile: ./Dockerfile
+    ports:
+      - "8000:80"
