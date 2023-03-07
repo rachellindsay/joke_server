@@ -1,6 +1,6 @@
 # Joke_server
 
-Joke_server is a simple program that displays a random joke to the user when the user clicks the joke button. It runs locally in two Docker containers.
+Joke_server is a simple program that displays a random joke to the user when the joke button is clicked. It runs locally in Docker containers.
 
 ### Frontend
 HTML, CSS, and Javascript to display a button and the returned joke on the screen. The very bad jokes are currently a JavaScript array of strings.
