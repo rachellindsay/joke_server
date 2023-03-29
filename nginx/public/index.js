@@ -1,6 +1,6 @@
 const onJokeClick = () => {
   axios
-    .get("http://localhost:3000/singleJoke")
+    .get("/app")
     .then((result) => {
       const data = result.data;
       const tellJoke = document.getElementById("div2");

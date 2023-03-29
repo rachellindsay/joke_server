@@ -5,6 +5,8 @@ services:
       build:
         context: ./nginx
         dockerfile: ./Dockerfile
+      depends_on:
+        - app
       ports:
         - "8080:8080"
 
@@ -13,6 +15,9 @@ services:
       build: 
         context: ./app
         dockerfile: ./Dockerfile
+      expose: 
+        - "5000"
       ports:
         - "3000:3000"
+        - "5000:5000"
      

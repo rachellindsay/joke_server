@@ -1,0 +1,56 @@
+Todo list!:
+
+Part 1) 
+See if you can configure nginx so that it serves your static html directly, and only forwards /app paths to node.   
+  - You will move app/public/index.html and styles.css to nginx/public. 
+  - Joke.js will get restructured (step 3) 
+  - You should be able to run just the nginx container, and http://localhost:8080 should display your joke page html. The button will no longer work.
+
+    Joke server directory
+      - public  
+          - index.html  
+          - styles.css
+      - Dockerfile
+      - default.conf
+      - compose.yaml
+
+Part 2) 
+See if you can get the node server so that it responds to the http://localhost:8080/app/joke url with json containing a random joke.
+
+    Joke server directory
+      - app dir
+          - (jokes.js) ???
+          - index.js --- include express
+          - Dockerfile
+          - dockerignore
+      - nginx dir
+          - public
+            - index.html
+            - styles.css
+          - Dockerfile
+          - default.conf
+      - compose.yaml
+
+
+Part 3) 
+Wire up the button in the joke server so that it makes an ajax call to /app/joke, gets the json with the random joke, and displays it. Use axios to make the ajax call.
+
+    Joke server directory
+      - app dir
+          - (jokes.js) ???
+          - index.js --- include express
+          - Dockerfile
+          - dockerignore
+      - nginx dir
+          - public
+            - index.html
+            - styles.css
+          - Dockerfile
+          - default.conf
+      - compose.yaml
+
+
+4) 
+Use .gitignore so that you don't have app/node_modules under git
+
+    --- How to .gitignore???

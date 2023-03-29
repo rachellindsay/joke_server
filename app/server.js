@@ -1,13 +1,21 @@
-// server.js
-const jsonServer = require('json-server')
-const server = jsonServer.create()
-const router = jsonServer.router('data/jokeData.json')
-const middlewares = jsonServer.defaults()
 
-server.use(middlewares)
-server.use(router)
-server.listen(3000, () => {
-  console.log('JSON Server is running')
-})
+const randomJoke = require ('./randomJoke');
+const express = require("express");
+
+
+
+const app = express();
+// 
+const port = 5000;
+
+
+app.get("/app", (req, res) => {
+  const joke = randomJoke();
+  res.json(joke);
+});
+
+app.listen(port, () => {
+  console.log(`app listening on port ${port}`);
+});
 
 
