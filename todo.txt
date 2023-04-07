@@ -1,5 +1,24 @@
 Todo list!:
 
+
+- get mariadb running in docker container. Add it to the existing docker-compose
+- get adminer (https://hub.docker.com/_/adminer) running as well
+- figure out how to use adminer to connect to the db. Create a junk
+table, stick some junk data in it
+- figure out how to initialize the database, and how to preserve data
+so you don't lose it when docker goes away
+- figure out a structure of database tables that will do what you want
+(non-junk tables, non-junk data). Figure out queries that will do what
+you want.
+- figure out how to connect to the database from the node server
+- hook everything up!
+
+
+
+
+
+
+
 Part 1) 
 See if you can configure nginx so that it serves your static html directly, and only forwards /app paths to node.   
   - You will move app/public/index.html and styles.css to nginx/public. 
