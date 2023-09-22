@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from "vue-router";
 import JokeHome from "../views/JokeHome.vue";
 import SubmitJoke from "../views/SubmitJoke.vue";
 import ApproveJoke from "../views/ApproveJoke.vue";
-import CallbackPage from "../views/CallbackPage.vue";
 
 const routes = [
   {
@@ -19,11 +18,6 @@ const routes = [
     path: "/approve",
     name: "approve",
     component: ApproveJoke,
-  },
-  {
-    path: "/callback",
-    name: "callback",
-    component: CallbackPage,
   },
 ];
 
