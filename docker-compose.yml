@@ -1,0 +1,48 @@
+version: "3"
+services:
+  frontend:
+    build:
+      context: ./docker_containers/frontend
+      dockerfile: ./Dockerfile
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+
+  backend:
+    build:
+      context: ./docker_containers/backend
+      dockerfile: ./Dockerfile
+    depends_on:
+      - db
+    expose:
+      - "5000"
+    ports:
+      - "5000:5000"
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+    expose:
+      - "8080"
+    ports:
+      - 8080:8080
+    links:
+      - db
+
+  db:
+    build:
+      context: ./docker_containers/db
+    ports:
+      - 5555:3306
+    environment:
+      - MARIADB_ROOT_PASSWORD=example
+      - MARIADB_DATABASE=joke_db
+      #  - MARIADB_USER=root
+      - MARIADB_PASSWORD=example
+
+    command: mysqld --datadir=/internal/db_storage
+    volumes:
+      - ./docker_containers/db/db_storage:/internal/db_storage
