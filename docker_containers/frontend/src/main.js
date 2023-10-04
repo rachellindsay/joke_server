@@ -10,7 +10,7 @@ app.use(router).use(
     domain: "dev-rf2tzlnnbdolqy0x.us.auth0.com",
     clientId: "5eof9LR2bmecvsioX8xR1gOBXKeDWCaE",
     authorizationParams: {
-      redirect_uri: "http://localhost:80",
+      redirect_uri: "http://localhost",
     },
   })
 );
