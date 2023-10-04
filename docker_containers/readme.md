@@ -42,7 +42,7 @@ Joke_server is a simple program that displays a random joke to the user when the
 
 3. Navigate to the frontend directory, run `npm install`
 
-4. Still in the frontend directory, run `npm run serve`
+4. Still in the frontend directory, run `npm run build`
 5. In the db directory, create a new directory called db_storage (this is where the database data lives after docker creates the new database.)
 6. Navigate to the root directory and run:
 
