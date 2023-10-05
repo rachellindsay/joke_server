@@ -7,8 +7,11 @@ services:
     depends_on:
       - backend
     ports:
-      - "80:80"
-      - "443:443"
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/conf/:/etc/nginx/conf.d/:ro
+      - ./certbot/www/:/var/www/certbot/:ro
 
   certbot:
     image: certbot/certbot:latest
@@ -25,7 +28,7 @@ services:
     expose:
       - "5000"
     ports:
-      - "5000:5000"
+      - 5000:5000
 
   adminer:
     image: adminer
