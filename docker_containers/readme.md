@@ -1,11 +1,6 @@
 to do:
 
-Update readme to add back the instructions (need to be edited) from v1s
-
-git repo
-login button - just login and indicate whether someone is logged in - display email address if logged in
-random joke - add backend and run through nginx and make call to db
-deploy to rachellindsay.net
+check in local changes to git
 
 extra:
 makefile
@@ -25,6 +20,8 @@ to install
 npm install in both frontend and backend
 npm run build in frontend to get the dist directory
 navigate to root, docker compose up
+
+Let's Encrypt Tutorial: https://mindsers.blog/post/https-using-nginx-certbot-docker/
 
 # Joke_server
 
