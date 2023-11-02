@@ -16,5 +16,5 @@ app.use(router).use(
 );
 
 app.mount("#app");
-
+console.log("hello, it's rachel and marion");
 // createApp(App).use(router).mount("#app");

@@ -1,0 +1,51 @@
+version: "3"
+services:
+  frontend:
+    image: nginx:1.23-alpine-slim
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker_containers/frontend/conf-local/:/etc/nginx/conf.d/:ro
+      # - ./docker_containers/certbot/www:/var/www/certbot/:ro
+      # - ./docker_containers/certbot/conf/:/etc/nginx/ssl/:ro
+      - ./docker_containers/frontend/dist/:/usr/share/nginx/public/:ro
+
+  backend:
+    build:
+      context: ./docker_containers/backend
+      dockerfile: ./Dockerfile
+    depends_on:
+      - db
+    expose:
+      - "5000"
+    ports:
+      - "5000:5000"
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+    links:
+      - db
+
+  db:
+    build:
+      context: ./docker_containers/db
+    ports:
+      - "5555:3306"
+    environment:
+      - MARIADB_ROOT_PASSWORD=example
+      - MARIADB_DATABASE=joke_db
+      #  - MARIADB_USER=root
+      - MARIADB_PASSWORD=example
+
+    command: mysqld --datadir=/internal/db_storage
+    volumes:
+      - ./docker_containers/db/db_storage:/internal/db_storage

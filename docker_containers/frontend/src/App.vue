@@ -1,9 +1,12 @@
 <template>
+  <!--
   <nav>
     <router-link to="/">home</router-link> |
     <router-link to="/submit">submit jokes</router-link> |
     <router-link to="/approve">approve jokes</router-link>
   </nav>
+  -->
+
   <router-view />
 </template>
 

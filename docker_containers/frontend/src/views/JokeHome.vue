@@ -15,10 +15,9 @@ import { ref } from "vue";
 import getJoke from "@/composables/getJoke";
 import NavBar from "@/components/navigation/NavBar.vue";
 
-const currentJoke = ref("haha, very funny");
+const currentJoke = ref("");
 
-async function onJoke(e) {
-  console.log("hello from onJoke", e);
+async function onJoke() {
   currentJoke.value = await getJoke();
 }
 </script>

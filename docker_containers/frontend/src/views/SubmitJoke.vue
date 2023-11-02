@@ -1,26 +1,64 @@
 <template>
-  <!-- NavBar should only show logout button because users should be logged in to see the submit joke button -->
   <NavBar />
   <div>
-    <h1>This page is for submitting jokes</h1>
+    joke:{{ joke }}
+    <hr />
+    category:{{ category }}
   </div>
-  <form>
-    <!-- the form 
-          user name auto filled
+  <div class="newJokeForm">
+    <p>submit a joke</p>
+    <form @submit.prevent="onSubmit">
+      <div>
+        <label>
+          joke:
+          <textarea v-model="joke" placeholder="type joke..."></textarea>
+        </label>
+      </div>
 
-          joke input field - textarea
+      <div>
+        <label>
+          joke category:
+          <select v-model="category">
+            <option disabled value="">select category</option>
+            <option value="animal">animal</option>
+            <option value="cat">cat</option>
+            <option value="misc">misc</option>
+            <option value="plant">plant</option>
+            <option value="dad">dad</option>
+            <option value="pun">pun</option>
+          </select>
+        </label>
+      </div>
 
-          joke category dropdown
+      <div>
+        <label id="userEmailLabel"> user email: {{ email }} </label>
+      </div>
 
-          submit button - will submit joke to the database with approval defaulting to O for false. Once approved 'approved' will change to 1 for true.
-            - function to insert into db
-            - need to alter db to 
-
-          response that joke has been submitted for approval - modal?
-    -->
-  </form>
+      <div class="submit">
+        <button type="submit">submit joke</button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script setup>
 import NavBar from "@/components/navigation/NavBar.vue";
+import submitJoke from "@/composables/submitJoke";
+import authUser from "@/composables/loginUtils";
+/* function to add joke to db with default status of pending
+      - auto assign id, timestamp, and status ("pending")
+      - gets user_email from login
+      - gets joke and joke category from user input
+   Update page on submit to show that joke has been submitted and to check back that joke has been approved, display button asking if user has another joke
+*/
+
+import { ref } from "vue";
+
+const joke = ref("");
+const category = ref("");
+
+async function onSubmit(/*event*/) {
+  console.log("hello, we're in onSubmit");
+  await submitJoke(joke.value, category.value, authUser());
+}
 </script>
