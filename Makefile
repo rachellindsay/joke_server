@@ -22,7 +22,11 @@ local-up:
 local-down:
 	docker compose -f compose-local.yml down
 
+remote-up:
+	docker compose -f compose-remote.yml up
 
+remote-down:
+	docker compose -f compose-remote.yml down
 
 
 # ===== clean
