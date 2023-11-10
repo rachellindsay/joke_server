@@ -2,8 +2,6 @@
   <NavBar />
   <div class="div1">
     <h2>Pending Jokes</h2>
-    <p>Click button for pending jokes</p>
-    <button @click="getPending">pending jokes</button>
   </div>
 
   <div class="pendingItems">
@@ -22,13 +20,17 @@ import NavBar from "@/components/navigation/NavBar.vue";
 import getAllPendingJokes from "@/composables/getAllPendingJokes";
 import approveJoke from "@/composables/approveJoke";
 import rejectJoke from "@/composables/rejectJoke";
-import { ref } from "vue";
+import { ref, onBeforeMount } from "vue";
 
 const pending = ref([]);
 
 async function getPending() {
   pending.value = await getAllPendingJokes();
 }
+
+onBeforeMount(async () => {
+  getPending();
+});
 
 async function approve(id) {
   await approveJoke(id);
@@ -39,10 +41,3 @@ async function reject(id) {
   await getPending();
 }
 </script>
-
-<style scoped>
-ul #items li {
-  text-align: left;
-  padding: 10px;
-}
-</style>

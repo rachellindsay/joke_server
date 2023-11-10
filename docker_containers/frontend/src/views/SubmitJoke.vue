@@ -1,10 +1,5 @@
 <template>
   <NavBar />
-  <div>
-    joke:{{ joke }}
-    <hr />
-    category:{{ category }}
-  </div>
   <div class="newJokeForm">
     <p>submit a joke</p>
     <form @submit.prevent="onSubmit">
@@ -28,10 +23,6 @@
             <option value="pun">pun</option>
           </select>
         </label>
-      </div>
-
-      <div>
-        <label id="userEmailLabel"> user email: {{ email }} </label>
       </div>
 
       <div class="submit">

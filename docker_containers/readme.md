@@ -1,27 +1,16 @@
-to do:
-make compose-remote.yml that will look almost identical to the compose-local, but will have a different .env (.env does not get checked into git). Update to use conf-remote/default.conf .
-Should be able to update EC2 (add remote-up and remote-down targets to make file - to be run after connecting to EC2)
+To do:
 
-submit joke page
+fine tuning:
 
-- empty field for joke body
-- submit button to call the backend and submit the joke
+- url routing problems - if a user types url/approve they should be redirected to home page rather than getting 404.
 
-authorize joke page
+- database:
 
-- navigating to authorize joke page should run function of pulling pending jokes from backend. Refreshing page should also run same function
-- how to display pending jokes
-- approve/reject buttons that change the joke status
+  - joke categories coming from db - separate table with it's own ids (foreign key)
+    -- add categories: computer, food,
+  - add timestamp
 
-backend
-
-- is this user authorized function
-- change the status of this joke function (approve/reject), refer to by id
-- get pending jokes function
-- submit joke function - assigns id, default pending status, submitter email
-
-extra:
-make pretty
+- make pretty
 
 to login to EC2:
 navigate to .ssh directory

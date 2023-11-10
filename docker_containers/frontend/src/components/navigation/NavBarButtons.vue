@@ -27,9 +27,3 @@ const isAuthenticated = authUser() !== "";
 
 const canApprove = canUserApprove(authUser());
 </script>
-
-<style>
-ul {
-  list-style: none;
-}
-</style>

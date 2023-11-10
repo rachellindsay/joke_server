@@ -7,15 +7,6 @@ const port = 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-/* 
-randomJoke
-canUserApprove
-submitJoke
-approveJoke
-rejectJoke
-allPendingJokes
-
-*/
 app.get("/backend/randomJoke", async (req, res) => {
   const joke = await dbCalls.randomJoke();
   res.json(joke);
