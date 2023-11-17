@@ -2,11 +2,11 @@
 import { useAuth0 } from "@auth0/auth0-vue";
 
 function authUser() {
-  // console.log("authUser: VUE_APP_AUTH_EMAIL", process.env.VUE_APP_AUTH_EMAIL);
+  console.log("authUser: VUE_APP_AUTH_EMAIL", process.env.VUE_APP_AUTH_EMAIL);
   console.log("useAuth0", useAuth0);
-  // if (process.env.VUE_APP_AUTH_EMAIL !== undefined) {
-  //   return process.env.VUE_APP_AUTH_EMAIL;
-  // }
+  if (process.env.VUE_APP_AUTH_EMAIL !== undefined) {
+    return process.env.VUE_APP_AUTH_EMAIL;
+  }
   if (useAuth0.isAuthenticated) {
     return useAuth0.user.email;
   }

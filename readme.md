@@ -16,6 +16,11 @@ to login to EC2:
 ssh -i "~/.ssh/JokeServer.pem" ubuntu@ec2-34-212-28-186.us-west-2.compute.amazonaws.com
 (you can find this by connecting to instance in EC2 dashboard on AWS, then selecting SSH client)
 
+things that could go wrong:
+
+- check if the ip address has changed. If it has, go to hover and update.
+- if you can't ssh in check if the ip address has changed.
+
 to install
 npm install in both frontend and backend
 npm run build in frontend to get the dist directory
