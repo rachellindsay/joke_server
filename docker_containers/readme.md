@@ -13,8 +13,7 @@ fine tuning:
 - make pretty
 
 to login to EC2:
-navigate to .ssh directory
-ssh -i "JokeServer.pem" ubuntu@ec2-35-86-104-116.us-west-2.compute.amazonaws.com
+ssh -i "~/.ssh/JokeServer.pem" ubuntu@ec2-34-212-28-186.us-west-2.compute.amazonaws.com
 (you can find this by connecting to instance in EC2 dashboard on AWS, then selecting SSH client)
 
 to install

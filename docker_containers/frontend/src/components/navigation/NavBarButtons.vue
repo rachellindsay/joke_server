@@ -15,6 +15,12 @@
       <LogoutButton />
     </li>
   </ul>
+  <hr />
+  <pre>
+    isAuthenticated: {{ isAuthenticated }}
+    canApprove: {{ canApprove }}
+    authUser(): {{ authUser() }}
+  </pre>
 </template>
 
 <script setup>
