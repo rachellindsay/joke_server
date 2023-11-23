@@ -51,5 +51,7 @@ const category = ref("");
 async function onSubmit(/*event*/) {
   console.log("hello, we're in onSubmit");
   await submitJoke(joke.value, category.value, authUser());
+  joke.value = "";
+  category.value = "";
 }
 </script>

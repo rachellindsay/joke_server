@@ -4,6 +4,8 @@ fine tuning:
 
 - url routing problems - if a user types url/approve they should be redirected to home page rather than getting 404.
 
+- on hear joke page I would like to have something that tells the user that they can submit a joke. I would either need to either tell them to click 'tell a joke' in the navbar or redo the router-link so that by default the router link to submit joke would run authUser(). Is this a better way of going about it?
+
 - database:
 
   - joke categories coming from db - separate table with it's own ids (foreign key)
