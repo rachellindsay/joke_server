@@ -31,7 +31,7 @@ import LogoutButton from "@/components/buttons/LogoutButton.vue";
 import { useAuth0 } from "@auth0/auth0-vue";
 // canUserApprove returns boolean
 import canUserApprove from "@/composables/canUserApprove";
-import { ref, onBeforeMount } from "vue";
+import { ref, watch } from "vue";
 
 // const isAuthenticated = authUser() !== "";
 const { isAuthenticated } = useAuth0();
@@ -40,9 +40,13 @@ console.log(useAuth0());
 const { user } = useAuth0();
 
 const canApprove = ref(false);
-onBeforeMount(async () => {
-  const { user } = useAuth0();
-  console.log("user email: ", user.value.email);
-  canApprove.value = await canUserApprove(user?.email);
+
+watch(user, async () => {
+  const userEmail = user.value?.email;
+  if (userEmail) {
+    canApprove.value = await canUserApprove(userEmail);
+  } else {
+    canApprove.value = false;
+  }
 });
 </script>
