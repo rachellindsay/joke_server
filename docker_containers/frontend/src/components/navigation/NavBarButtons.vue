@@ -37,7 +37,6 @@ const isAuthenticated = authUser() !== "";
 let canApprove = ref();
 onBeforeMount(async () => {
   canApprove.value = await canUserApprove(authUser());
-  console.log(canApprove);
   return canApprove;
 });
 </script>
