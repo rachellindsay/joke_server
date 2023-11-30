@@ -4,6 +4,8 @@ fine tuning:
 
 - url routing problems - if a user types url/approve they should be redirected to home page rather than getting 404.
 
+- on hear joke page I would like to have something that tells the user that they can submit a joke. I would either need to either tell them to click 'tell a joke' in the navbar or redo the router-link so that by default the router link to submit joke would run authUser(). Is this a better way of going about it?
+
 - database:
 
   - joke categories coming from db - separate table with it's own ids (foreign key)
@@ -13,9 +15,13 @@ fine tuning:
 - make pretty
 
 to login to EC2:
-navigate to .ssh directory
-ssh -i "JokeServer.pem" ubuntu@ec2-35-86-104-116.us-west-2.compute.amazonaws.com
+ssh -i "~/.ssh/JokeServer.pem" ubuntu@ec2-35-91-102-40.us-west-2.compute.amazonaws.com
 (you can find this by connecting to instance in EC2 dashboard on AWS, then selecting SSH client)
+
+things that could go wrong:
+
+- check if the ip address has changed. If it has, go to hover and update.
+- if you can't ssh in check if the ip address has changed.
 
 to install
 npm install in both frontend and backend

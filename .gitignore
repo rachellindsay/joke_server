@@ -5,3 +5,4 @@ db_storage
 # built vue stuff
 dist
 .env
+notes.txt

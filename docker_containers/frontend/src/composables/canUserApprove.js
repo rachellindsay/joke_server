@@ -6,8 +6,8 @@ async function canUserApprove(email) {
       email: email,
     },
   });
-  console.log(response);
-  return response.value;
+  console.log(response.data);
+  return response.data; // should return boolean
 }
 
 export default canUserApprove;

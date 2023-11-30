@@ -15,15 +15,28 @@
       <LogoutButton />
     </li>
   </ul>
+  <hr />
+  <pre>
+    isAuthenticated: {{ isAuthenticated }}
+    canApprove: {{ canApprove }}
+    authUser(): {{ authUser() }}
+  </pre>
 </template>
 
 <script setup>
 import LoginButton from "@/components/buttons/LoginButton.vue";
 import LogoutButton from "@/components/buttons/LogoutButton.vue";
+// authUser returns email
 import authUser from "@/composables/loginUtils";
+// canUserApprove returns boolean
 import canUserApprove from "@/composables/canUserApprove";
+import { ref, onBeforeMount } from "vue";
 
 const isAuthenticated = authUser() !== "";
 
-const canApprove = canUserApprove(authUser());
+let canApprove = ref();
+onBeforeMount(async () => {
+  canApprove.value = await canUserApprove(authUser());
+  return canApprove;
+});
 </script>

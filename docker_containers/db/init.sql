@@ -8,12 +8,23 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
+DROP TABLE IF EXISTS `can_approve`;
+CREATE TABLE `can_approve` (
+  `user_name` varchar(50) NOT NULL,
+  `user_email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `can_approve` (`user_name`, `user_email`) VALUES
+('Rachel',	'racheljlindsay@gmail.com');
+
+
+
 DROP TABLE IF EXISTS `jokes`;
 CREATE TABLE `jokes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `joke` varchar(250) NOT NULL,
   `category` varchar(20) NOT NULL,
-  `user` varchar(50) NOT NULL,
+  `user_email` varchar(50) NOT NULL,
   `status` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -24,7 +35,7 @@ INSERT INTO `jokes` (`id`, `joke`, `category`, `user_email`, `status`) VALUES
 (3,	'A man knocked on my door and asked for a small donation towards the local swimming pool. I gave him a glass of water.',	'misc',	'racheljlindsay@gmail.com',	'approved'),
 (4,	'What\'s the longest word in the dictionary? Smiles. Because there is a mile between the Ss.',	'misc',	'racheljlindsay@gmail.com',	'approved'),
 (5,	'I\'ll never forget my Granddad\'s last words to me just before he died. \"Are you still holding the ladder?\"',	'misc',	'racheljlindsay@gmail.com',	'approved'),
-(6,	'A neutron walks into a a bar and asks for the drink prices. The bartender says, \"For you, no charge.\"',	'misc',	'racheljlindsay@gmail.com',	'approved'),
+(6,	'A neutron walks into a bar and asks for the drink prices. The bartender says, \"For you, no charge.\"',	'misc',	'racheljlindsay@gmail.com',	'approved'),
 (7,	'There are two fish in a tank. One turns to the other and says, \"Do you know how to drive this thing?\"',	'animal',	'racheljlindsay@gmail.com',	'pending'),
 (8,	'What did the buffalo say to his little boy when he dropped him off at school? Bison.',	'animal',	'racheljlindsay@gmail.com',	'pending'),
 (9,	'Which side of a chicken has more feathers? The outside.',	'animal',	'racheljlindsay@gmail.com',	'pending'),
@@ -35,11 +46,3 @@ INSERT INTO `jokes` (`id`, `joke`, `category`, `user_email`, `status`) VALUES
 (14,	'What\'s brown and sounds like a bell? Dung',	'misc',	'racheljlindsay@gmail.com',	'approved');
 
 
-DROP TABLE IF EXISTS `can_approve`;
-CREATE TABLE `can_approve` (
-  `user_name` varchar(50) NOT NULL,
-  `user_email` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-INSERT INTO `can_approve` (`user_name`, `user_email`) VALUES
-('Rachel',	'racheljlindsay@gmail.com');
