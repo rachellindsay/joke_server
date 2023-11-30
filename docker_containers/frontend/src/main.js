@@ -9,10 +9,10 @@ app.use(router);
 
 app.use(
   createAuth0({
-    domain: "dev-rf2tzlnnbdolqy0x.us.auth0.com",
-    clientId: "5eof9LR2bmecvsioX8xR1gOBXKeDWCaE",
+    domain: process.env.VUE_APP_AUTH0_DOMAIN,
+    clientId: process.env.VUE_APP_AUTH0_CLIENT_ID,
     authorizationParams: {
-      redirect_uri: "https://rachellindsay.net",
+      redirect_uri: process.env.VUE_APP_API_SERVER_URL,
     },
   })
 );

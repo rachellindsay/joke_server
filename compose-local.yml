@@ -5,7 +5,7 @@ services:
     depends_on:
       - backend
     ports:
-      - "80:80"
+      - "3000:80"
     volumes:
       - ./docker_containers/frontend/conf-local/:/etc/nginx/conf.d/:ro
       # - ./docker_containers/certbot/www:/var/www/certbot/:ro

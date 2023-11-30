@@ -4,7 +4,7 @@
       <LoginButton />
     </li>
     <li v-if="isAuthenticated">
-      {{ authUser() }}
+      {{ user?.email }}
       <router-link to="/"> home </router-link>
       <router-link to="/submit"> submit jokes </router-link>
     </li>
@@ -19,7 +19,7 @@
   <pre>
     isAuthenticated: {{ isAuthenticated }}
     canApprove: {{ canApprove }}
-    authUser(): {{ authUser() }}
+    user email: {{ user?.email }}
   </pre>
 </template>
 
@@ -27,16 +27,22 @@
 import LoginButton from "@/components/buttons/LoginButton.vue";
 import LogoutButton from "@/components/buttons/LogoutButton.vue";
 // authUser returns email
-import authUser from "@/composables/loginUtils";
+// import authUser from "@/composables/loginUtils";
+import { useAuth0 } from "@auth0/auth0-vue";
 // canUserApprove returns boolean
 import canUserApprove from "@/composables/canUserApprove";
 import { ref, onBeforeMount } from "vue";
 
-const isAuthenticated = authUser() !== "";
+// const isAuthenticated = authUser() !== "";
+const { isAuthenticated } = useAuth0();
+console.log(useAuth0());
 
-let canApprove = ref();
+const { user } = useAuth0();
+
+const canApprove = ref(false);
 onBeforeMount(async () => {
-  canApprove.value = await canUserApprove(authUser());
-  return canApprove;
+  const { user } = useAuth0();
+  console.log("user email: ", user.value.email);
+  canApprove.value = await canUserApprove(user?.email);
 });
 </script>
