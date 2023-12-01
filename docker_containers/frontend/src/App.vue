@@ -1,6 +1,8 @@
 <template>
+  <NavBar />
   <!--
   <nav>
+    
     <router-link to="/">home</router-link> |
     <router-link to="/submit">submit jokes</router-link> |
     <router-link to="/approve">approve jokes</router-link>
@@ -9,6 +11,9 @@
 
   <router-view />
 </template>
+<script setup>
+import NavBar from "@/components/navigation/NavBar.vue";
+</script>
 
 <style>
 #app {

@@ -1,5 +1,4 @@
 <template>
-  <NavBar />
   <div class="div1">
     <h2>Pending Jokes</h2>
   </div>
@@ -16,7 +15,7 @@
 </template>
 
 <script setup>
-import NavBar from "@/components/navigation/NavBar.vue";
+// import NavBar from "@/components/navigation/NavBar.vue";
 import getAllPendingJokes from "@/composables/getAllPendingJokes";
 import approveJoke from "@/composables/approveJoke";
 import rejectJoke from "@/composables/rejectJoke";

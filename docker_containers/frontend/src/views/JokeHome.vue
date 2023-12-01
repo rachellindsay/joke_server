@@ -1,5 +1,4 @@
 <template>
-  <NavBar />
   <div id="div1">
     <h2>Really Bad Jokes</h2>
     <p>Click the joke button for a really bad joke</p>
@@ -13,7 +12,7 @@
 <script setup>
 import { ref } from "vue";
 import getJoke from "@/composables/getJoke";
-import NavBar from "@/components/navigation/NavBar.vue";
+// import NavBar from "@/components/navigation/NavBar.vue";
 
 const currentJoke = ref("");
 
