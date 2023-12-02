@@ -1,5 +1,4 @@
 <template>
-  <NavBar />
   <div class="newJokeForm">
     <p>submit a joke</p>
     <form @submit.prevent="onSubmit">
@@ -33,7 +32,7 @@
 </template>
 
 <script setup>
-import NavBar from "@/components/navigation/NavBar.vue";
+// import NavBar from "@/components/navigation/NavBar.vue";
 import submitJoke from "@/composables/submitJoke";
 import authUser from "@/composables/loginUtils";
 /* function to add joke to db with default status of pending
