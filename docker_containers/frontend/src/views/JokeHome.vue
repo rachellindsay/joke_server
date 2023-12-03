@@ -1,7 +1,7 @@
 <template>
-  <div id="div1">
-    <h2>Really Bad Jokes</h2>
-    <p>Click the joke button for a really bad joke</p>
+  <div div="grid">
+    <h1 class="title">Really Bad Jokes</h1>
+    <p>Would you like to hear a really bad joke?</p>
     <button @click="onJoke">joke</button>
     <br />
 
@@ -20,3 +20,4 @@ async function onJoke() {
   currentJoke.value = await getJoke();
 }
 </script>
+<style scoped></style>

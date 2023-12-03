@@ -1,0 +1,13 @@
+#app {
+  font-family: "Satisfy", cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ccc;
+}
+.title {
+  color: #417777;
+}
+.navBarButtons {
+  background-color: #d1bd19;
+  color: #417777;
+}

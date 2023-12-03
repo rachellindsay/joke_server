@@ -1,5 +1,8 @@
 <template>
-  <NavBar />
+  <div class="grid"></div>
+  <div class="navBarButtons">
+    <NavBarButtons />
+  </div>
   <!--
   <nav>
     
@@ -12,24 +15,5 @@
   <router-view />
 </template>
 <script setup>
-import NavBar from "@/components/navigation/NavBar.vue";
+import NavBarButtons from "@/components/navigation/NavBarButtons.vue";
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #333;
-}
-
-nav a {
-  font-weight: bold;
-  color: #333;
-}
-
-nav a.router-link-exact-active {
-  color: #125238;
-}
-</style>

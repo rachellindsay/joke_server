@@ -1,16 +1,22 @@
 <template>
-  <div class="div1">
-    <h2>Pending Jokes</h2>
-  </div>
+  <div class="grid">
+    <h1 class="title">Pending Jokes</h1>
 
-  <div class="pendingItems">
-    <ul id="items">
-      <li v-for="item in pending" :key="item.id">
-        {{ `[${item.id}]  ${item.joke}` }}
-        <button @click="approve(item.id)">approve {{ `[${item.id}]` }}</button>
-        <button @click="reject(item.id)">reject {{ `[${item.id}]` }}</button>
-      </li>
-    </ul>
+    <div class="content">
+      <div id="items">
+        <div v-for="item in pending" :key="item.id">
+          {{ `${item.id} ${item.joke}` }}
+          <div class="buttons">
+            <button class="approve" @click="approve(item.id)">
+              approve {{ `[${item.id}]` }}
+            </button>
+            <button class="reject" @click="reject(item.id)">
+              reject {{ `[${item.id}]` }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
