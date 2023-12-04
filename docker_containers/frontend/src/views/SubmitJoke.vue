@@ -3,16 +3,16 @@
     <div class="newJokeSubmit">
       <h1 class="title">Do you have a joke to share?</h1>
 
-      <div class="content">
+      <div class="submitContent">
         <p>Please share your jokes with us.</p>
-        <p>
+        <h4>
           Fine print: We get to judge your joke before it goes into our
           rotation.
-        </p>
+        </h4>
         <p>User email: {{ user?.email }}</p>
       </div>
 
-      <div class="form">
+      <div class="submitForm">
         <form @submit.prevent="onSubmit">
           <div class="enterJoke">
             <label>
@@ -35,7 +35,7 @@
             </label>
           </div>
 
-          <div class="submit">
+          <div class="submitButton">
             <button type="submit">submit joke</button>
           </div>
         </form>
@@ -68,3 +68,27 @@ async function onSubmit(/*event*/) {
   category.value = "";
 }
 </script>
+<style scoped>
+.grid {
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: auto;
+  gap: 3px;
+}
+.title {
+  grid-column: 3/7;
+  grid-row: 2/3;
+  margin: auto;
+}
+.submitContent {
+  grid-column: 3/7;
+  grid-row: 2/3;
+}
+.submitForm {
+  grid-column: 3/7;
+  grid-row: 3/5;
+}
+.submitButton {
+  grid-column: 4/6;
+  grid-row: 5/6;
+}
+</style>

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { authGuard } from "@auth0/auth0-vue";
+import isAuthenticated from "@/components/navigation/NavBarButtons.vue";
 import JokeHome from "../views/JokeHome.vue";
 import SubmitJoke from "../views/SubmitJoke.vue";
 import ApproveJoke from "../views/ApproveJoke.vue";
@@ -27,6 +28,13 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach(async (to) => {
+  if (!isAuthenticated && to.name !== "home") {
+    return { name: "home" };
+  }
+  return true;
 });
 
 export default router;

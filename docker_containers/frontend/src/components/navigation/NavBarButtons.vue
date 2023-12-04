@@ -17,18 +17,26 @@
       <LogoutButton />
     </li>
   </ul> -->
-  <div class="nav_bar_buttons">
-    <div class="logInOut" v-if="!isAuthenticated"><LoginButton /></div>
-    <div class="logInOut" v-if="isAuthenticated"><LogoutButton /></div>
+  <div id="navbar_buttons" class="navbar_buttons">
+    <div class="logInOut">
+      <div class="logInOut" v-if="!isAuthenticated"><LoginButton /></div>
+      <div class="logInOut" v-if="isAuthenticated"><LogoutButton /></div>
+    </div>
+
     <div class="authenticated" v-if="isAuthenticated">
       <h3>
         user: <span class="userEmail">{{ user?.email }}</span>
       </h3>
-      <p class="home"><router-link to="/"> hear joke </router-link></p>
-      <p class="submit">
-        <router-link to="/submit"> tell joke </router-link>
-      </p>
     </div>
+
+    <div class="authenticated" v-if="isAuthenticated">
+      <p class="home"><router-link to="/"> hear joke </router-link></p>
+    </div>
+
+    <div class="authenticated" v-if="isAuthenticated">
+      <p class="submit"><router-link to="/submit"> tell joke </router-link></p>
+    </div>
+
     <div v-if="canApprove">
       <p class="approve">
         <router-link to="/approve"> pending jokes </router-link>
@@ -70,3 +78,10 @@ watch(user, async () => {
   }
 });
 </script>
+
+<style>
+#navbar_buttons .navbar_buttons {
+  display: inline;
+  color: #417777;
+}
+</style>

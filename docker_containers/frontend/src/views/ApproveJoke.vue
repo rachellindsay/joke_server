@@ -2,9 +2,9 @@
   <div class="grid">
     <h1 class="title">Pending Jokes</h1>
 
-    <div class="content">
+    <div id="pendingJokes" class="pendingJokeContainer">
       <div id="items">
-        <div v-for="item in pending" :key="item.id">
+        <div class="pendingJoke" v-for="item in pending" :key="item.id">
           {{ `${item.id} ${item.joke}` }}
           <div class="buttons">
             <button class="approve" @click="approve(item.id)">
@@ -46,3 +46,34 @@ async function reject(id) {
   await getPending();
 }
 </script>
+<style>
+.title {
+  grid-column: 3/7;
+  grid-row: 2;
+  margin: auto;
+  color: #417777;
+}
+
+#pendingJokes {
+  grid-template-columns: 2/8;
+  grid-template-rows: 3/6;
+}
+
+.pendingJokeContainer {
+  display: grid;
+  grid-template-columns: repeat(6, 1 fr);
+  margin: auto;
+}
+#pendingjoke {
+  grid-column: 1/5;
+  text-align: left;
+}
+.approve {
+  grid-column: 5/6;
+  margin: center;
+}
+.reject {
+  grid-column: 6/7;
+  margin: center;
+}
+</style>
