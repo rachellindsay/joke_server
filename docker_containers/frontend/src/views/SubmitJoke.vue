@@ -1,51 +1,47 @@
 <template>
-  <div class="grid">
-    <div class="newJokeSubmit">
-      <h1 class="title">Do you have a joke to share?</h1>
+  <h1 class="page-title">Do you have a joke to share?</h1>
 
-      <div class="submitContent">
-        <p>Please share your jokes with us.</p>
-        <h4>
-          Fine print: We get to judge your joke before it goes into our
-          rotation.
-        </h4>
-        <p>User email: {{ user?.email }}</p>
+  <div class="blurb">
+    <h4>Please share your jokes with us.</h4>
+    <!-- <h4>fine print: We will judge your joke.</h4> -->
+    <p>
+      If we like it we'll keep it and you may see it here. We also record the
+      email associated with each joke submitted.
+    </p>
+    <p>User email: {{ user?.email }}</p>
+  </div>
+
+  <div class="content">
+    <form @submit.prevent="onSubmit">
+      <div class="enterJoke">
+        <label>
+          <h3>joke:</h3>
+          <textarea v-model="joke" placeholder="type joke..."></textarea>
+        </label>
       </div>
 
-      <div class="submitForm">
-        <form @submit.prevent="onSubmit">
-          <div class="enterJoke">
-            <label>
-              joke:
-              <textarea v-model="joke" placeholder="type joke..."></textarea>
-            </label>
-          </div>
-
-          <div class="selectCategory">
-            <label>
-              joke category:
-              <select v-model="category">
-                <option disabled value="">joke category</option>
-                <option value="animal">animal</option>
-                <option value="cat">cat</option>
-                <option value="misc">misc</option>
-                <option value="plant">plant</option>
-                <option value="dad">dad</option>
-              </select>
-            </label>
-          </div>
-
-          <div class="submitButton">
-            <button type="submit">submit joke</button>
-          </div>
-        </form>
+      <div class="selectCategory">
+        <label>
+          <h3>joke category:</h3>
+          <select v-model="category">
+            <option disabled value="">joke category</option>
+            <option value="animal">animal</option>
+            <option value="cat">cat</option>
+            <option value="misc">misc</option>
+            <option value="plant">plant</option>
+            <option value="dad">dad</option>
+          </select>
+        </label>
       </div>
-    </div>
+    </form>
+  </div>
+
+  <div class="buttons">
+    <button type="submit">submit joke</button>
   </div>
 </template>
 
 <script setup>
-// import NavBar from "@/components/navigation/NavBar.vue";
 import submitJoke from "@/composables/submitJoke";
 import { useAuth0 } from "@auth0/auth0-vue";
 /* function to add joke to db with default status of pending
@@ -62,33 +58,35 @@ const category = ref("");
 const { user } = useAuth0();
 
 async function onSubmit(/*event*/) {
-  console.log("hello, we're in onSubmit");
   await submitJoke(joke.value, category.value, user.value?.email);
   joke.value = "";
   category.value = "";
 }
 </script>
 <style scoped>
-.grid {
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: auto;
-  gap: 3px;
+h3 {
+  padding-right: 20px;
+  font-size: 1.3rem;
 }
-.title {
-  grid-column: 3/7;
-  grid-row: 2/3;
-  margin: auto;
+textarea {
+  height: 7rem;
+  width: 25rem;
+  vertical-align: top;
+  background-color: #274848;
+  border: none;
 }
-.submitContent {
-  grid-column: 3/7;
-  grid-row: 2/3;
+select {
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border: none;
 }
-.submitForm {
-  grid-column: 3/7;
-  grid-row: 3/5;
-}
-.submitButton {
-  grid-column: 4/6;
-  grid-row: 5/6;
+button {
+  background-color: #d1bd19;
+  border: none;
+  border-radius: 5%;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 1rem;
+  margin: 0 2rem 0.5rem 2rem;
 }
 </style>

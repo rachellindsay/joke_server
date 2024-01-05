@@ -58,7 +58,7 @@ clean-frontend:
 docker-clean-frontend:
 # not needed because we are not using a custom docker image - it bind mounts from docker compose
 	
-build-frontend:
+build-frontend: docker_containers/frontend/.env
 	-cd docker_containers/frontend; npm install 
 	-cd docker_containers/frontend; npm run build 
 

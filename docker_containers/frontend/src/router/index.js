@@ -4,6 +4,7 @@ import isAuthenticated from "@/components/navigation/NavBarButtons.vue";
 import JokeHome from "../views/JokeHome.vue";
 import SubmitJoke from "../views/SubmitJoke.vue";
 import ApproveJoke from "../views/ApproveJoke.vue";
+import AboutPage from "../views/AboutPage.vue";
 
 const routes = [
   {
@@ -22,6 +23,11 @@ const routes = [
     name: "approve",
     component: ApproveJoke,
     beforeEnter: authGuard,
+  },
+  {
+    path: "/about",
+    name: "about",
+    component: AboutPage,
   },
 ];
 

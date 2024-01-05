@@ -1,25 +1,20 @@
 <template>
-  <div div="grid">
-    <h1 class="title">Would you like to hear a joke</h1>
-    <div class="content">
-      <p>
-        These jokes are not guaranteed to make you laugh. I do not claim that
-        these are good jokes. In fact, you might be more likely to groan than
-        laugh. Hopefully though, you will get a chuckle out of a few of them.
-        That's really all I am going for here.
-      </p>
-    </div>
-    <button class="getJokeButton" @click="onJoke">joke</button>
-    <br />
-
-    <div id="div2" class="currentJoke">{{ currentJoke }}</div>
+  <h1 class="page-title">Can I tell you a joke?</h1>
+  <div class="blurb">
+    <p>
+      These jokes are not guaranteed to make you laugh. I do not claim that
+      these are good jokes. In fact, you might be more likely to groan than
+      laugh. Hopefully though, you will get a chuckle out of a few of them.
+      That's really all I am going for here.
+    </p>
   </div>
+  <div class="content">{{ currentJoke }}</div>
+  <button class="buttons" @click="onJoke">joke</button>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import getJoke from "@/composables/getJoke";
-// import NavBar from "@/components/navigation/NavBar.vue";
 
 const currentJoke = ref("");
 
@@ -28,29 +23,20 @@ async function onJoke() {
 }
 </script>
 <style scoped>
-.grid {
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-}
-.title {
-  grid-column: 3/7;
-  grid-row: 2;
-  margin: auto;
-  color: #417777;
-}
 .content {
-  grid-column: 3/7;
-  grid-row: 3/4;
-  margin: auto;
+  background-color: var(--accent-color-2);
+  color: #f2f2f2;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
 }
-.getJokeButton {
-  grid-column: 4/6;
-  grid-row: 5/6;
-  margin: auto;
-}
-.currentJoke {
-  grid-column: 3/7;
-  grid-row: 6/7;
-  margin: auto;
+button {
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 1rem;
+  margin: 1rem;
 }
 </style>

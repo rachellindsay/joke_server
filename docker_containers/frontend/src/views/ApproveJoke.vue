@@ -1,27 +1,26 @@
 <template>
-  <div class="grid">
-    <h1 class="title">Pending Jokes</h1>
+  <h1 class="page-title">Pending Jokes</h1>
 
-    <div id="pendingJokes" class="pendingJokeContainer">
-      <div id="items">
-        <div class="pendingJoke" v-for="item in pending" :key="item.id">
-          {{ `${item.id} ${item.joke}` }}
-          <div class="buttons">
-            <button class="approve" @click="approve(item.id)">
-              approve {{ `[${item.id}]` }}
-            </button>
-            <button class="reject" @click="reject(item.id)">
-              reject {{ `[${item.id}]` }}
-            </button>
-          </div>
-        </div>
+  <div class="blurb">
+    <p>
+      New jokes are given a pending status until they can be approved. Once
+      approved the will immediately enter the joke pool. Rejected jokes are
+      still kept in the database for future reference.
+    </p>
+  </div>
+
+  <div class="content">
+    <div class="pending-joke" v-for="item in pending" :key="item.id">
+      {{ `${item.joke}` }}
+      <div class="buttons">
+        <button class="approve-joke" @click="approve(item.id)">approve</button>
+        <button class="reject-joke" @click="reject(item.id)">reject</button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-// import NavBar from "@/components/navigation/NavBar.vue";
 import getAllPendingJokes from "@/composables/getAllPendingJokes";
 import approveJoke from "@/composables/approveJoke";
 import rejectJoke from "@/composables/rejectJoke";
@@ -46,34 +45,24 @@ async function reject(id) {
   await getPending();
 }
 </script>
-<style>
-.title {
-  grid-column: 3/7;
-  grid-row: 2;
-  margin: auto;
-  color: #417777;
+<style scoped>
+.pending-joke {
+  padding-top: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.buttons button {
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: normal;
+  padding: 1rem;
+  margin: 1rem;
 }
 
-#pendingJokes {
-  grid-template-columns: 2/8;
-  grid-template-rows: 3/6;
+button.approve-joke {
+  background-color: #d1bd19;
 }
-
-.pendingJokeContainer {
-  display: grid;
-  grid-template-columns: repeat(6, 1 fr);
-  margin: auto;
-}
-#pendingjoke {
-  grid-column: 1/5;
-  text-align: left;
-}
-.approve {
-  grid-column: 5/6;
-  margin: center;
-}
-.reject {
-  grid-column: 6/7;
-  margin: center;
+button.reject-joke {
+  background-color: #e47804;
 }
 </style>
