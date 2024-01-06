@@ -50,6 +50,7 @@ async function reject(id) {
   padding-top: 1.5rem;
   font-size: 1.3rem;
   font-weight: bold;
+  border-top: 2px solid var(--text-accent-color);
 }
 .buttons button {
   border: none;

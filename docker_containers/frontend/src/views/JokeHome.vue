@@ -9,7 +9,9 @@
     </p>
   </div>
   <div class="content">{{ currentJoke }}</div>
-  <button class="buttons" @click="onJoke">joke</button>
+  <div class="buttons">
+    <button @click="onJoke">joke</button>
+  </div>
 </template>
 
 <script setup>
@@ -35,8 +37,8 @@ button {
   border: none;
   border-radius: var(--border-radius);
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   padding: 1rem;
-  margin: 1rem;
+  margin: 0.5rem 0;
 }
 </style>

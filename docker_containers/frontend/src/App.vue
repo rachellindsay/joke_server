@@ -52,7 +52,7 @@ body {
   grid-area: page-title;
   color: var(--text-accent-color);
   text-align: center;
-  padding: 2rem;
+  padding: 2rem 2rem 0 2rem;
   /* background-color: #b5caca;*/
   border-radius: var(--border-radius);
 }
@@ -60,14 +60,15 @@ body {
   grid-area: blurb;
   font-size: 1.2rem;
   text-align: left;
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
 }
 .content {
   grid-area: content;
-  padding: 2rem;
+  padding: 0 2rem;
 }
 .buttons {
   grid-area: buttons;
+  margin: auto;
 }
 .footer {
   grid-area: footer;
@@ -76,22 +77,20 @@ body {
   color: var(--text-accent-color);
   background-color: #d1bd19;
 }
-/*
-@media screen(max-width: 900px;)
+
+@media screen and (min-width: 700px) {
   #app {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
-      "navigation navigation navigation navigation"
-      "page-title page-title page-title page-title"
-      "blurb blurb blurb blurb "
-      "content content content content"
-      "buttons buttons buttons buttons"
-      "footer footer footer footer";
+      "navigation navigation"
+      "page-title blurb "
+      "content content"
+      "buttons buttons"
+      "footer footer";
     gap: 2px;
   }
-
-
-*/
+  .blurb {
+    padding-top: 2rem;
+  }
+}
 </style>

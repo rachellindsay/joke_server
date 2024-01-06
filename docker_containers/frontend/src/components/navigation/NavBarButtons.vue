@@ -71,7 +71,7 @@ ul {
 }
 ul#navbar_buttons.navigation {
   margin: 0;
-  padding: 0;
+  padding: 0 1rem;
 }
 li {
   padding: 0.3rem 0.4rem;
@@ -83,7 +83,7 @@ li {
 p.user-email {
   margin-block-start: 0;
   margin-block-end: 0;
-  font-weight: lighter;
+  font-weight: bold;
 }
 li a.router-link-active {
   color: #274848;
@@ -96,6 +96,7 @@ button {
   font-size: 1rem;
   color: #417777;
   cursor: pointer;
+  padding: 0;
 }
 a {
   color: #417777;

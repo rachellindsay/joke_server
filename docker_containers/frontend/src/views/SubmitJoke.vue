@@ -68,11 +68,15 @@ h3 {
   padding-right: 20px;
   font-size: 1.3rem;
 }
+form {
+  border-top: 2px solid #274848;
+}
 textarea {
   height: 7rem;
-  width: 25rem;
+  width: 100%;
   vertical-align: top;
   background-color: #274848;
+  color: #f2f2f2;
   border: none;
 }
 select {
@@ -87,6 +91,6 @@ button {
   font-weight: bold;
   font-size: 1.2rem;
   padding: 1rem;
-  margin: 0 2rem 0.5rem 2rem;
+  margin: 0.5rem 2rem;
 }
 </style>
