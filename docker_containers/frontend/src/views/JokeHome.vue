@@ -1,18 +1,22 @@
 <template>
-  <div id="div1">
-    <h2>Really Bad Jokes</h2>
-    <p>Click the joke button for a really bad joke</p>
+  <h1 class="page-title">Can I tell you a joke?</h1>
+  <div class="blurb">
+    <p>
+      These jokes are not guaranteed to make you laugh. I do not claim that
+      these are good jokes. In fact, you might be more likely to groan than
+      laugh. Hopefully though, you will get a chuckle out of a few of them.
+      That's really all I am going for here.
+    </p>
+  </div>
+  <div class="content">{{ currentJoke }}</div>
+  <div class="buttons">
     <button @click="onJoke">joke</button>
-    <br />
-
-    <div id="div2">{{ currentJoke }}</div>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import getJoke from "@/composables/getJoke";
-// import NavBar from "@/components/navigation/NavBar.vue";
 
 const currentJoke = ref("");
 
@@ -20,3 +24,21 @@ async function onJoke() {
   currentJoke.value = await getJoke();
 }
 </script>
+<style scoped>
+.content {
+  background-color: var(--accent-color-2);
+  color: #f2f2f2;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+}
+button {
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 1rem;
+  margin: 0.5rem 0;
+}
+</style>
