@@ -37,7 +37,7 @@
   </div>
 
   <div class="buttons">
-    <button type="submit">submit joke</button>
+    <button type="submit" @click="onSubmit">submit joke</button>
   </div>
 </template>
 
@@ -92,5 +92,6 @@ button {
   font-size: 1.2rem;
   padding: 1rem;
   margin: 0.5rem 2rem;
+  cursor: pointer;
 }
 </style>
