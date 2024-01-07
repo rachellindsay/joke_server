@@ -7,6 +7,11 @@
       laugh. Hopefully though, you will get a chuckle out of a few of them.
       That's really all I am going for here.
     </p>
+    <p>
+      If you have a joke you'd like to share, we'd like to see it. Login with
+      your Google account (above left) and you will see an option to share
+      jokes.
+    </p>
   </div>
   <div class="content">{{ currentJoke }}</div>
   <div class="buttons">
@@ -38,6 +43,7 @@ button {
   border-radius: var(--border-radius);
   font-weight: bold;
   font-size: 1.2rem;
+  text-align: center;
   padding: 1rem;
   margin: 0.5rem 0;
 }

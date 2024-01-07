@@ -102,10 +102,9 @@ a {
   color: #417777;
   text-decoration: none;
 }
-/*
-@media screen(max-width: 900px;)
-  li {
-    text-wrap: wrap;
+@media screen and (max-width: 700px) {
+  .navigation {
+    justify-content: space-around;
   }
-*/
+}
 </style>
