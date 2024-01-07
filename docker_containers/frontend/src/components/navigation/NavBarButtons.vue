@@ -93,7 +93,7 @@ li a.router-link-active {
 button {
   background: transparent;
   border: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--text-accent-color);
   cursor: pointer;
   padding: 0;
