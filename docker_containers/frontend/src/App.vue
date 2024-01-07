@@ -23,17 +23,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #444;
 }
-/* #app {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-areas:
-    ". navigation navigation navigation navigation."
-    ". page-title page-title blurb blurb . "
-    ". content content content content ."
-    ". buttons buttons buttons buttons ."
-    ". footer footer footer footer .";
-  gap: 5px;
-}*/
 #app {
   display: grid;
   grid-template-areas:
@@ -91,6 +80,26 @@ body {
   }
   .blurb {
     padding-top: 2rem;
+  }
+}
+@media screen and (min-width: 950px) {
+  #app {
+    padding: 0 5rem;
+  }
+}
+@media screen and (min-width: 1110px) {
+  #app {
+    padding: 0 10rem;
+  }
+}
+@media screen and (min-width: 1275px) {
+  #app {
+    padding: 0 15rem;
+  }
+}
+@media screen and (min-width: 1600px) {
+  #app {
+    padding: 0 20rem;
   }
 }
 </style>

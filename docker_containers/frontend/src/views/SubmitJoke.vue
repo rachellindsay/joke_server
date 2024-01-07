@@ -69,25 +69,31 @@ h3 {
   font-size: 1.3rem;
 }
 form {
-  border-top: 2px solid #274848;
+  border-top: 2px solid var(--accent-color-2);
 }
 textarea {
   height: 7rem;
   width: 100%;
   vertical-align: top;
-  background-color: #274848;
+  background-color: var(--accent-color-2);
   color: #f2f2f2;
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: Avenir, sans-serif;
   border: none;
 }
 select {
   font-size: 0.9rem;
+  font-weight: bold;
+  font-family: Avenir, sans-serif;
   padding: 0.5rem;
   border: none;
 }
 button {
-  background-color: #d1bd19;
+  background-color: var(--accent-color);
+  color: var(--accent-color-2);
   border: none;
-  border-radius: 5%;
+  border-radius: var(--border-radius);
   font-weight: bold;
   font-size: 1.2rem;
   padding: 1rem;

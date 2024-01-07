@@ -63,8 +63,8 @@ watch(user, async () => {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: #c4b016;
-  color: #417777;
+  background-color: var(--accent-color);
+  color: var(--text-accent-color);
 }
 ul {
   list-style-type: none;
@@ -75,7 +75,7 @@ ul#navbar_buttons.navigation {
 }
 li {
   padding: 0.3rem 0.4rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-decoration: none;
   text-align: center;
   text-wrap: nowrap;
@@ -86,7 +86,7 @@ p.user-email {
   font-weight: bold;
 }
 li a.router-link-active {
-  color: #274848;
+  color: var(--accent-color-2);
   font-weight: bold;
   text-decoration: underline;
 }
@@ -94,15 +94,15 @@ button {
   background: transparent;
   border: none;
   font-size: 1rem;
-  color: #417777;
+  color: var(--text-accent-color);
   cursor: pointer;
   padding: 0;
 }
 a {
-  color: #417777;
+  color: var(--text-accent-color);
   text-decoration: none;
 }
-@media screen and (max-width: 700px) {
+@media screen and (min-width: 700px) {
   .navigation {
     justify-content: space-around;
   }

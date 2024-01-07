@@ -38,7 +38,9 @@ async function onJoke() {
   text-align: center;
 }
 button {
+  cursor: pointer;
   background-color: var(--accent-color);
+  color: var(--accent-color-2);
   border: none;
   border-radius: var(--border-radius);
   font-weight: bold;
