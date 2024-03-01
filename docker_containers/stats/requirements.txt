@@ -1,0 +1,12 @@
+# this the reqiurements.txt file that the python docker container will use to 
+# pip3 install whatever it needs
+# % pip3 freeze
+
+pika
+
+# these for connecting with database
+mysql-connector-python
+
+
+
+

@@ -17,16 +17,32 @@
   <div class="buttons">
     <button @click="onJoke">joke</button>
   </div>
+
+  <div class="stats">
+    <p>Stats: {{ stats }}</p>
+  </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onBeforeMount } from "vue";
 import getJoke from "@/composables/getJoke";
+import { useAuth0 } from "@auth0/auth0-vue";
+import getStats from "@/composables/getStats";
 
 const currentJoke = ref("");
+const { user } = useAuth0();
+const stats = ref("");
+
+onBeforeMount(async () => {
+  currentStats();
+});
+
+async function currentStats() {
+  stats.value = await getStats();
+}
 
 async function onJoke() {
-  currentJoke.value = await getJoke();
+  currentJoke.value = await getJoke(user.value?.email);
 }
 </script>
 <style scoped>

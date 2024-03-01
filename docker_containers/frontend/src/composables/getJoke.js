@@ -1,7 +1,11 @@
 import axios from "axios";
 
-async function getJoke() {
-  const response = await axios.get("/backend/randomJoke");
+async function getJoke(email) {
+  const response = await axios.get("/backend/randomJoke", {
+    params: {
+      email,
+    },
+  });
 
   return response.data.joke;
 }

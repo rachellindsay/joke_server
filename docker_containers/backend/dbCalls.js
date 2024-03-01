@@ -24,7 +24,7 @@ const randomJoke = async function randomJoke() {
   try {
     conn = await pool.getConnection();
     const result = await conn.query(
-      `SELECT jokes.joke 
+      `SELECT jokes.joke, jokes.id, jokes.category 
       FROM jokes 
       WHERE jokes.status = "approved"
       ORDER BY RAND() 
@@ -45,7 +45,7 @@ const allPendingJokes = async function allPendingJokes() {
   try {
     conn = await pool.getConnection();
     const result = await conn.query(
-      `SELECT jokes.joke, jokes.id
+      `SELECT jokes.joke, jokes.id, jokes.category
       FROM jokes 
       WHERE jokes.status = "pending"`
     );
