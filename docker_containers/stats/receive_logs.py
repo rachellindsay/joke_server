@@ -97,7 +97,7 @@ def threadSubmitted():
   
   channel.start_consuming()
 
-def main():
+def startConsumerThreads():
   toldThread = threading.Thread(target=threadTold )
   submittedThread = threading.Thread(target=threadSubmitted)
 
@@ -107,4 +107,3 @@ def main():
   toldThread.join()
   submittedThread.join()
 
-main()

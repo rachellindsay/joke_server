@@ -1,8 +1,9 @@
 from flask import Flask
-# import mysql.connector
+import mysql.connector
 # import json
 import gunicorn
 from werkzeug.middleware.proxy_fix import ProxyFix
+
 
 app = Flask(__name__)
 
@@ -14,28 +15,28 @@ app.wsgi_app = ProxyFix(
 def index():
   return "Hello World"
 
-# @app.get("/flask/getStats")
-# def getStats():
-#   try:
-#     with mysql.connector.connect(
-#       host="db",
-#       user="root",
-#       password="example",
-#       database="stats_db"
-#     ) as connection:
-#       get_stats = """
-#       SELECT COUNT (*)
-#       FROM jokes_told
-#       WHERE category = cat;
-#       """
+@app.get("/flask/getStats")
+def getStats():
+  try:
+    with mysql.connector.connect(
+      host="db",
+      user="root",
+      password="example",
+      database="stats_db"
+    ) as connection:
+      get_stats = """
+      SELECT COUNT(*)
+      FROM jokes_told
+      WHERE category = 'cat';
+      """
         
-#       with connection.cursor() as cursor:
-#           cursor.executemany(get_stats)
-#           result = cursor.fetchall()
-#           print(result)
+      with connection.cursor() as cursor:
+          cursor.execute(get_stats, ())
+          result = cursor.fetchall()
+          return result
             
-#   except mysql.connector.Error as e:
-    # print(e)
+  except mysql.connector.Error as e:
+    print(e)
 
-if __name__ == "__main__":
-  app.run
+# if __name__ == "__main__":
+#   app.run

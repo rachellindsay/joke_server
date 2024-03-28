@@ -4,7 +4,7 @@ services:
     image: nginx:1.23-alpine-slim
     depends_on:
       - backend
-      - flask
+      - stats
     ports:
       - "3000:80"
     volumes:
@@ -61,6 +61,8 @@ services:
         condition: service_healthy
       db:
         condition: service_started
+    ports:
+      - "4000:4000"
 
   email:
     stdin_open: true
@@ -73,16 +75,16 @@ services:
       rabbitmq:
         condition: service_healthy
 
-  flask:
-    stdin_open: true
-    tty: true
-    build:
-      context: ./docker_containers/flask
-    # depends_on:
-    #   db:
-    #     condition: service_started
-    ports:
-      - "4000:4000"
+  # flask:
+  #   stdin_open: true
+  #   tty: true
+  #   build:
+  #     context: ./docker_containers/flask
+  #   depends_on:
+  #     db:
+  #       condition: service_started
+  #   ports:
+  #     - "4000:4000"
 
   rabbitmq:
     build:

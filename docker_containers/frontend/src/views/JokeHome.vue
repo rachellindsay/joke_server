@@ -43,6 +43,7 @@ async function currentStats() {
 
 async function onJoke() {
   currentJoke.value = await getJoke(user.value?.email);
+  await currentStats();
 }
 </script>
 <style scoped>

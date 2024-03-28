@@ -7,6 +7,10 @@ pika
 # these for connecting with database
 mysql-connector-python
 
+Flask==3.0.2
+gunicorn
+werkzeug
+
 
 
 

@@ -86,7 +86,7 @@ USE stats_db;
 
 DROP TABLE IF EXISTS `jokes_told`;
 CREATE TABLE `jokes_told` (
-  `when` datetime NOT NULL DEFAULT current_timestamp(),
+  `time_stamp` datetime NOT NULL DEFAULT current_timestamp(),
   `joke_id` int(11) NOT NULL,
   `logged_in` boolean NOT NULL,
   `category` varchar(20) DEFAULT NULL
@@ -94,7 +94,7 @@ CREATE TABLE `jokes_told` (
 
 DROP TABLE IF EXISTS `jokes_submitted`;
 CREATE TABLE `jokes_submitted` (
-  `when` datetime NOT NULL DEFAULT current_timestamp(),
+  `time_stamp` datetime NOT NULL DEFAULT current_timestamp(),
   `who` varchar(50) NOT NULL,
   `category` varchar(20) DEFAULT NULL
 );
