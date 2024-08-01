@@ -144,6 +144,9 @@ docker-build-stats:
 		--tag ${PROJECT}-stats \
 		docker_containers/stats
 
+test-stats: docker-build-stats
+	docker run -it ${PROJECT}-stats pytest
+
 rebuild-stats: clean-stats docker-clean-stats build-stats docker-build-stats
 
 # =========== email ===============
