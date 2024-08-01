@@ -11,7 +11,9 @@ services:
       - ./docker_containers/frontend/conf-local/:/etc/nginx/conf.d/:ro
       # - ./docker_containers/certbot/www:/var/www/certbot/:ro
       # - ./docker_containers/certbot/conf/:/etc/nginx/ssl/:ro
-      - ./docker_containers/frontend/dist/:/usr/share/nginx/public/:ro
+      - ./docker_containers/frontend/vue/dist/:/usr/share/nginx/public/vue/:ro
+      - ./docker_containers/frontend/react_joke/build/:/usr/share/nginx/public/react_joke/:ro
+      - ./docker_containers/frontend/homepage/:/usr/share/nginx/public/homepage/:ro
 
   backend:
     build:
