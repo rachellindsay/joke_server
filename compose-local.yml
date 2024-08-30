@@ -77,17 +77,6 @@ services:
       rabbitmq:
         condition: service_healthy
 
-  # flask:
-  #   stdin_open: true
-  #   tty: true
-  #   build:
-  #     context: ./docker_containers/flask
-  #   depends_on:
-  #     db:
-  #       condition: service_started
-  #   ports:
-  #     - "4000:4000"
-
   rabbitmq:
     build:
       context: ./docker_containers/rabbitmq

@@ -19,7 +19,25 @@
   </div>
 
   <div class="stats">
-    <p>Stats: {{ stats }}</p>
+    <!-- 
+    <form id="stats-select" @click="jokeByCategory">
+      <div class="selectCategory">
+        <label>
+          <p>Get jokes shown by category: =</p>
+          <select v-model="category">
+            <option disabled value="">joke category</option>
+            <option value="animal">animal</option>
+            <option value="cat">cat</option>
+            <option value="misc">misc</option>
+            <option value="plant">plant</option>
+            <option value="dad">dad</option>
+          </select>
+        </label>
+        <p>{{ StatsByCategory }}</p>
+      </div>
+    </form>
+   -->
+    <pre>Stats: {{ stats }}</pre>
   </div>
 </template>
 
