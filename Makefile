@@ -52,17 +52,27 @@ rebuild-all: local-down clean-all build-all local-up
 # ============= frontend ===============
 
 clean-frontend:
-	-rm -rf docker_containers/frontend/node_modules
-	-rm -rf docker_containers/frontend/dist
+	-rm -rf docker_containers/frontend/vue/node_modules
+	-rm -rf docker_containers/frontend/vue/dist
+	-rm -rf docker_containers/frontend/react_joke/build
+	-rm -rf docker-containers/frontend/react_joke/node_modules
 
 docker-clean-frontend:
 # not needed because we are not using a custom docker image - it bind mounts from docker compose
 	
-build-frontend: docker_containers/frontend/.env
-	-cd docker_containers/frontend; npm install 
-	-cd docker_containers/frontend; npm run build 
+build-frontend: build-frontend-vue build-frontend-react
+
+build-frontend-vue: docker_containers/frontend/vue/.env
+	-cd docker_containers/frontend/vue; npm install 
+	-cd docker_containers/frontend/vue; npm run build 
+	
+build-frontend-react: 
+	-cd docker_containers/frontend/react_joke; npm install
+	-cd docker_containers/frontend/react_joke; npm run build
+
 
 docker-build-frontend:
+# not needed because we are not using a custom docker image - it bind mounts from docker compose
 
 rebuild-frontend: clean-frontend docker-clean-frontend build-frontend docker-build-frontend
 	
@@ -133,6 +143,9 @@ docker-build-stats:
 	docker build \
 		--tag ${PROJECT}-stats \
 		docker_containers/stats
+
+test-stats: docker-build-stats
+	docker run -it ${PROJECT}-stats pytest
 
 rebuild-stats: clean-stats docker-clean-stats build-stats docker-build-stats
 

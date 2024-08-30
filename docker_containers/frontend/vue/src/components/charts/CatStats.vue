@@ -11,6 +11,10 @@ import { ref, onBeforeMount } from "vue";
 
 const catStats = ref<HTMLDivElement>();
 
+onBeforeMount(async () => {
+  Plotly.newPlot;
+});
+
 Plotly.newPlot(catStats.value,)
 
 const data =

@@ -11,7 +11,9 @@ services:
       - ./docker_containers/frontend/conf-local/:/etc/nginx/conf.d/:ro
       # - ./docker_containers/certbot/www:/var/www/certbot/:ro
       # - ./docker_containers/certbot/conf/:/etc/nginx/ssl/:ro
-      - ./docker_containers/frontend/dist/:/usr/share/nginx/public/:ro
+      - ./docker_containers/frontend/vue/dist/:/usr/share/nginx/public/vue/:ro
+      - ./docker_containers/frontend/react_joke/build/:/usr/share/nginx/public/react_joke/:ro
+      - ./docker_containers/frontend/homepage/:/usr/share/nginx/public/homepage/:ro
 
   backend:
     build:
@@ -74,17 +76,6 @@ services:
     depends_on:
       rabbitmq:
         condition: service_healthy
-
-  # flask:
-  #   stdin_open: true
-  #   tty: true
-  #   build:
-  #     context: ./docker_containers/flask
-  #   depends_on:
-  #     db:
-  #       condition: service_started
-  #   ports:
-  #     - "4000:4000"
 
   rabbitmq:
     build:

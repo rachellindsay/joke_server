@@ -19,6 +19,8 @@
           <li>JavaScript</li>
           <li>Vue 3</li>
           <li>Nginx</li>
+          <li>Axios</li>
+          <!-- Axios is a lightweight http client -->
           <li>Auth0</li>
           <li>Let's Encrypt</li>
         </ul>

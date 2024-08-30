@@ -1,31 +1,35 @@
 <template>
   <ul id="navbar_buttons" class="navigation">
-    <li id="navbar" class="logInOut">
+    <li class="logInOut">
       <div class="logInOut" v-if="!isAuthenticated"><LoginButton /></div>
       <div class="logInOut" v-if="isAuthenticated"><LogoutButton /></div>
     </li>
 
-    <li id="navbar" class="aboutLink">
+    <li class="mainpage">
+      <a href="/">main</a>
+    </li>
+
+    <li class="aboutLink">
       <router-link to="/about"> about </router-link>
     </li>
 
-    <li id="navbar" class="authenticated" v-if="isAuthenticated">
+    <li class="authenticated" v-if="isAuthenticated">
       <div class="home">
         <router-link to="/"> jokes </router-link>
       </div>
     </li>
 
-    <li id="navbar" class="authenticated" v-if="isAuthenticated">
+    <li class="authenticated" v-if="isAuthenticated">
       <div class="submit">
         <router-link to="/submit"> share joke </router-link>
       </div>
     </li>
 
-    <li id="navbar" class="approve" v-if="canApprove">
+    <li class="approve" v-if="canApprove">
       <router-link to="/approve"> pending jokes </router-link>
     </li>
 
-    <li id="navbar" class="authenticated" v-if="isAuthenticated">
+    <li class="authenticated" v-if="isAuthenticated">
       <p class="user-email">
         user: <span>{{ user?.email }}</span>
       </p>
