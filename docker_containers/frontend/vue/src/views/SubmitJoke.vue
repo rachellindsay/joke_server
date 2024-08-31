@@ -42,14 +42,14 @@
 </template>
 
 <script setup>
-import submitJoke from "@/composables/submitJoke";
-import { useAuth0 } from "@auth0/auth0-vue";
 /* function to add joke to db with default status of pending
       - auto assign id, timestamp, and status ("pending")
       - gets user_email from login
       - gets joke and joke category from user input
    Update page on submit to show that joke has been submitted and to check back that joke has been approved, display button asking if user has another joke
 */
+import submitJoke from "@/composables/submitJoke";
+import { useAuth0 } from "@auth0/auth0-vue";
 
 import { ref } from "vue";
 

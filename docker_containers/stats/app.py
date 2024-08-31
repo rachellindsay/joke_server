@@ -39,7 +39,7 @@ def getStats():
       SELECT COUNT(*) AS cat_jokes_told, DATE(time_stamp) as date_told
       FROM jokes_told
       WHERE category = 'cat'
-      GROUP BY DATE(time_stamp)
+      GROUP BY DATE(time_stamp) DESC
       """
       # jokes told by category by date for the last month (when, joke_id, logged_in, category)
       #   count
@@ -57,6 +57,33 @@ def getStats():
             
   except mysql.connector.Error as e:
     print(e)
+
+# @app.get("/stats/getStatsByCategory")
+# def getStatsByCategory(category):
+ 
+#   print("getStatsByCategory called")
+  
+#   try:
+#     with mysql.connector.connect(
+#       host="db",
+#       user="root",
+#       password="example",
+#       database="stats_db"
+#     ) as connection:
+#       get_stats_by_category = """
+#       SELECT COUNT(*) AS jokes_told_by_category
+#       FROM jokes_told
+#       WHERE category = %s     
+#       """
+#       cat = (category, )
+      
+#       with connection.cursor(dictionary=True) as cursor:
+#           cursor.execute(get_stats_by_category, cat);
+#           result = cursor.fetchall()
+#           return jsonify(result)
+            
+  # except mysql.connector.Error as e:
+  #   print(e)
 
 @app.get("/stats/getJokesToldTodayStats")
 def getJokesToldTodayStats():
