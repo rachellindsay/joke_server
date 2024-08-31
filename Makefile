@@ -47,7 +47,9 @@ docker-build: docker-build-frontend docker-build-backend docker-build-db docker-
 
 build-all: build-containers docker-build
 
-rebuild-all: local-down clean-all build-all local-up
+rebuild-all-local: local-down clean-all build-all local-up
+
+rebuild-all-remote: remote-down clean-all build-all remote-up
 
 # ============= frontend ===============
 
