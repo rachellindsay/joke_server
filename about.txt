@@ -1,0 +1,38 @@
+to do - make .env file or find it on EC2 - it looks like the db user/password are hard coded in the compose-remote.yml
+
+Version 1: 
+
+      When I was trying to determine the best way for me to go about learning
+      web development, my friend, Marion, suggested a joke server that would
+      display a joke when the user clicked a button. The basic structure would
+      be a basic HTML page served by NGINX that would call a Node.js backend to
+      get a joke from a MariaDB database with all of it running under Docker Compose.
+
+            -HTML/CSS
+            -JavaScript
+            -NGINX
+            -Node.js/Express
+            -MariaDB
+            -Adminer
+            -Docker Compose
+
+
+Version 2:
+      A Vue 3 app replaces the basic HTML page for the frontend. Features were added to authenticate users with Auth0 and then allow them submit jokes to the database and also allow for select users to approve the jokes before they entered the random pool of jokes. 
+
+            -Vue 3
+            -Auth0
+            -Let's Encrypt/Certbot
+            -AWS EC2
+
+Version 3:
+
+            -RabbitMQ
+            -Python 
+            -Flask
+
+      Added a basic HTML landing page (to be finished) with a link to the joke server as well as other future projects. 
+      A new feature added is a RabbitMQ message service that sends messages to a new Python backend to a second database for collecting statistics as well as to send an email to let me know whenever a new joke is entered. Messages are sent when jokes are told and when jokes are submitted. 
+      For the statistics, there is one file listening for both the "told" and the "submitted" messages. I used threading to separate the functions with the idea that there could be multiple people getting and submitting jokes at the same time. Thread one is listening to the "told" exchange and when it receives a message, it take the data and submits the joke id, category, and whether the user was logged in to the database. Thread two is listening to the "submitted" exchange and if a joke is submitted, it sends the joke category and user email to the database.
+      The send email function is also listening to the submitted exchange and gets these messages. When a new message is recieved and email is sent using Python and the smtplib module. 
+      

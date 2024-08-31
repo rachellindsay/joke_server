@@ -6,3 +6,4 @@ db_storage
 dist
 .env
 notes.txt
+certbot
