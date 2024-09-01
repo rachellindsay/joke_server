@@ -64,6 +64,7 @@ services:
     tty: true
     build:
       context: ./docker_containers/stats
+      dockerfile: ./Dockerfile
     depends_on:
       rabbitmq:
         condition: service_healthy

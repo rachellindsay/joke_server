@@ -10,7 +10,7 @@ const { logout } = useAuth0();
 const handleLogout = () =>
   logout({
     logoutParams: {
-      returnTo: "http://localhost:3000/vue",
+      returnTo: "http://rachellindsay.net/vue/",
       // returnTo: window.location.origin + "/vue",
     },
   });

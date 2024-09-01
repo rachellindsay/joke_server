@@ -12,7 +12,7 @@ app.use(
     domain: process.env.VUE_APP_AUTH0_DOMAIN,
     clientId: process.env.VUE_APP_AUTH0_CLIENT_ID,
     authorizationParams: {
-      redirect_uri: process.env.VUE_APP_API_SERVER_URL + "/vue",
+      redirect_uri: process.env.VUE_APP_API_SERVER_URL,
     },
   })
 );
