@@ -10,8 +10,8 @@ const { logout } = useAuth0();
 const handleLogout = () =>
   logout({
     logoutParams: {
-      returnTo: "http://rachellindsay.net/vue/",
-      // returnTo: window.location.origin + "/vue",
+      // returnTo: "http://rachellindsay.net/vue/",
+      returnTo: window.location.origin + "/vue",
     },
   });
 </script>
