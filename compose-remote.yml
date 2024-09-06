@@ -4,6 +4,7 @@ services:
     image: nginx:1.23-alpine-slim
     depends_on:
       - backend
+      - stats
     ports:
       - "80:80"
       - "443:443"
@@ -26,7 +27,10 @@ services:
       context: ./docker_containers/backend
       dockerfile: ./Dockerfile
     depends_on:
-      - db
+      db:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
     expose:
       - "5000"
     ports:
@@ -36,7 +40,7 @@ services:
     image: adminer
     container_name: adminer
     environment:
-      ADMINER_DEFAULT_SERVER: db
+      - ADMINER_DEFAULT_SERVER=db
     expose:
       - "8080"
     ports:
@@ -48,12 +52,9 @@ services:
     build:
       context: ./docker_containers/db
     ports:
-      - 5555:3306
+      - "5555:3306"
     environment:
       - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
-      - MARIADB_DATABASE=${MARIADB_DATABASE}
-      - MARIADB_USER=${MARIADB_USER}
-      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
 
     command: mysqld --datadir=/internal/db_storage
     volumes:
@@ -70,6 +71,8 @@ services:
         condition: service_healthy
       db:
         condition: service_started
+    expose:
+      - "4000"
     ports:
       - "4000:4000"
 
